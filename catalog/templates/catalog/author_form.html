@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    {% if user.is_staff %}
+        <form action="" method="post">
+            {% csrf_token %}
+            <table>
+            {{ form.as_table }}
+            </table>
+            <input type="submit" value="Submit">
+        </form>
+    {% else %}
+        <h2>你需要管理員權限才可更改藏書資料</h2>
+    {% endif %}
+{% endblock %}
